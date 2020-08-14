@@ -1,0 +1,9 @@
+body{
+    background-color: lightgray;
+}
+
+#burger-logo{
+    width: 220px;
+    height: 200px;
+    justify-content: center;
+}
