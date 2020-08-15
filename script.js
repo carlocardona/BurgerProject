@@ -1,9 +1,10 @@
-$("#submit").on("click",(e) =>{ 
+$("#burgerButton").on("click",(e) =>{ 
     e.preventDefault();
-    console.log(e);
+
+    let burgerInput = $("#burgerInput").val();
+    console.log(burgerInput);
 })
 
-const eatBurg = () => {
-    console.log('eat Burg');
-}
-
+// const eatBurg = () => {
+//     console.log('eat Burg');
+// }
