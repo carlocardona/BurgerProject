@@ -1,0 +1,61 @@
+<h1>Burger Project</h1>
+
+<ul>
+  {{#each name}}
+  <li>
+    <p>
+      {{id}}.{{name}}
+
+      <button burgerID="{{id}}" class="eatBurger">Nom Nom Nom!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+
+<h2>Create a Burger</h2>
+<form id="createBurger" class="button-size">
+  <textarea type="text" name="burger"></textarea>
+  <button type="submit">Create Burger!</button>
+</form>
+
+<script type="text/javascript">
+  $(".eatBurger").on("click", function(event) {
+    // Get the ID from the button.
+    // This is shorthand for $(this).attr("burgerID")
+    var id = $(this).data("burgerID");
+
+    // Send the DELETE request.
+    $.ajax("/api/burger/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted id ", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  $("#createBurger").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    // [name=plan] will find an element with a "name" attribute equal to the string "plan"
+    var newBurger = {
+      burger: $("#createBurger [name=burger]").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burger", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("created new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+</script>
