@@ -6,13 +6,13 @@
     <p>
       {{id}}.{{name}}
 
-      <button burgerID="{{id}}" class="eatBurger">Nom Nom Nom!</button>
+      <button data-burgerId="{{id}}" class="eatBurger">Nom Nom Nom!</button>
     </p>
   </li>
   {{/each}}
 </ul>
 
-<h2>Create a Burger</h2>
+<h3>Create a Burger</h3>
 <form id="createBurger" class="button-size">
   <textarea type="text" name="burger"></textarea>
   <button type="submit">Create Burger!</button>
@@ -22,7 +22,9 @@
   $(".eatBurger").on("click", function(event) {
     // Get the ID from the button.
     // This is shorthand for $(this).attr("burgerID")
-    var id = $(this).data("burgerID");
+    //var id = $(this).data("burgerId");
+
+    var id = $(this).attr("data-burgerId");
 
     // Send the DELETE request.
     $.ajax("/api/burger/" + id, {

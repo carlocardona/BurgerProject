@@ -57,8 +57,8 @@ app.post("/api/burger", (req, res) => {
 });
 
 // Eat a Burger
-app.delete("/api/plans/:id", (req, res) => {
-  connection.query("DELETE FROM plans WHERE id = ?", [req.params.id], (err, result) => {
+app.delete("/api/burger/:id", (req, res) => {
+  connection.query("DELETE FROM burger WHERE id = ?", [req.params.id], (err, result) => {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
