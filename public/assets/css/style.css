@@ -1,0 +1,17 @@
+html,
+body {
+    background-color: lightcoral;
+}
+
+.list-group-item {
+    background-color: khaki;
+}
+
+.welcome {
+    font-family: "Caveat", cursive;
+    font-weight: bolder;
+}
+
+.colTitle {
+    font-family: "Permanent Marker", cursive;
+}
